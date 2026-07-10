@@ -69,7 +69,9 @@ const LoanDetails = () => {
   }, [id, selectedLoanRecord]);
 
   const details = useMemo(() => {
-    return id && LOAN_DETAILS_DB[id] ? LOAN_DETAILS_DB[id] : LOAN_DETAILS_DB.default;
+    return id && LOAN_DETAILS_DB[id]
+      ? LOAN_DETAILS_DB[id]
+      : LOAN_DETAILS_DB.default;
   }, [id]);
 
   // Compute summary tile values
@@ -89,7 +91,10 @@ const LoanDetails = () => {
 
   const tiles = [
     { label: "Total Sanctioned Amount", value: loan.sanctionedAmount },
-    { label: "Total Disbursement Amount", value: formatINR(totalDisbursementAmount) },
+    {
+      label: "Total Disbursement Amount",
+      value: formatINR(totalDisbursementAmount),
+    },
     { label: "Commission Income", value: formatINR(totalCommissionIncome) },
     { label: "Referral Fee", value: formatINR(totalReferralFee) },
     { label: "Net Income", value: formatINR(netIncome), green: true },
