@@ -43,7 +43,12 @@ const LoanDetails = () => {
       selectLoan({
         id,
         date: routeLoan.sanctionDate,
-        status: routeLoan.status,
+        status:
+          routeLoan.status === "Processed"
+            ? "Audited"
+            : routeLoan.status === "Lead"
+              ? "Draft"
+              : routeLoan.status,
         applicant: routeLoan.applicant,
         bank: routeLoan.bank,
         sanctionedAmount: routeLoan.sanctionedAmount,
